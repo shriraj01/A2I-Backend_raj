@@ -1,0 +1,29 @@
+# PRGuard config. Read from the default branch only, so a PR cannot change its own gate.
+[review]
+specialists = ["security", "quality", "tests", "docs"]
+max_findings = 6
+ci_fixer = true
+request_changes = false
+extra_instructions = """
+Node.js, Express 4, MySQL (mysql package), JWT (jsonwebtoken), Socket.IO, Multer.
+Every route except health checks must pass authMiddleware; JWTs must be verified with jwt.verify, never jwt.decode.
+Never trust roles, user ids or prices from request headers or bodies.
+Flag SQL built with string concatenation or template literals; queries must use ? placeholders.
+Flag request values passed into file paths, shell commands, RegExp or eval.
+"""
+
+[gate]
+fail_on = "HIGH"
+min_confidence = 0.6
+fail_on_needs_human = false
+fail_on_error = true      # model server down or erroring: fail the check instead of passing silently
+
+[auto]
+on_open = ["describe", "review"]
+on_push = ["review"]
+
+[commands]
+allowed_associations = ["OWNER", "MEMBER", "COLLABORATOR"]
+
+[ignore]
+paths = ["package-lock.json", "uploads/**", "loggers/**", "test-results/**", "images/**"]

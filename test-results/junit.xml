@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="27" failures="0" errors="0" time="1.014">
+  <testsuite name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests" errors="0" failures="0" skipped="0" timestamp="2026-09-08T11:11:54" time="0.444" tests="12">
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests transferRequest - SQL Injection &amp; Identifier Hardening should reject SQL injection payload in id parameter" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests transferRequest - SQL Injection &amp; Identifier Hardening should reject SQL injection payload in id parameter" time="0.005">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests transferRequest - SQL Injection &amp; Identifier Hardening should reject non-numeric SQL injection string in id" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests transferRequest - SQL Injection &amp; Identifier Hardening should reject non-numeric SQL injection string in id" time="0.002">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests transferRequest - SQL Injection &amp; Identifier Hardening should reject arbitrary or prototype injection in from/to module names" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests transferRequest - SQL Injection &amp; Identifier Hardening should reject arbitrary or prototype injection in from/to module names" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests transferRequest - SQL Injection &amp; Identifier Hardening should reject non-whitelisted table names injected into module names" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests transferRequest - SQL Injection &amp; Identifier Hardening should reject non-whitelisted table names injected into module names" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening addNote should reject malicious SQL injection in request_type" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening addNote should reject malicious SQL injection in request_type" time="0.002">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening addNote should reject SQL injection payload in request_id" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening addNote should reject SQL injection payload in request_id" time="0.002">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening getMessages should reject unwhitelisted request_type" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening getMessages should reject unwhitelisted request_type" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening markAsSeen should reject SQL injection in request_id" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening markAsSeen should reject SQL injection in request_id" time="0.002">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening getUnreadCount should reject invalid request_id and unwhitelisted request_type" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests messageController - SQL Injection &amp; Whitelist Hardening getUnreadCount should reject invalid request_id and unwhitelisted request_type" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests dashboardController - Year Input Hardening getRequestCountMonthWise should reject SQL injection in year parameter" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests dashboardController - Year Input Hardening getRequestCountMonthWise should reject SQL injection in year parameter" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests dashboardController - Year Input Hardening getRequestCountMonthWise should reject out-of-range year" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests dashboardController - Year Input Hardening getRequestCountMonthWise should reject out-of-range year" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests dashboardController - Year Input Hardening getAllDetails should reject SQL injection string in year" name="A2I Backend - SQL Injection Defense &amp; Input Hardening Tests dashboardController - Year Input Hardening getAllDetails should reject SQL injection string in year" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="A2I Backend - Auth Controller Unit Tests" errors="0" failures="0" skipped="0" timestamp="2026-09-08T11:11:55" time="0.181" tests="4">
+    <testcase classname="A2I Backend - Auth Controller Unit Tests validateSession should return 401 when no token is present" name="A2I Backend - Auth Controller Unit Tests validateSession should return 401 when no token is present" time="0.002">
+    </testcase>
+    <testcase classname="A2I Backend - Auth Controller Unit Tests validateSession should return 200 with valid: true when token is verified with MyAhana" name="A2I Backend - Auth Controller Unit Tests validateSession should return 200 with valid: true when token is verified with MyAhana" time="0.002">
+    </testcase>
+    <testcase classname="A2I Backend - Auth Controller Unit Tests validateSession should return 401 when MyAhana responds with 401" name="A2I Backend - Auth Controller Unit Tests validateSession should return 401 when MyAhana responds with 401" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - Auth Controller Unit Tests validateSession should return 503 when MyAhana network call fails" name="A2I Backend - Auth Controller Unit Tests validateSession should return 503 when MyAhana network call fails" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="A2I Backend - authMiddleware Unit Tests" errors="0" failures="0" skipped="0" timestamp="2026-09-08T11:11:55" time="0.084" tests="6">
+    <testcase classname="A2I Backend - authMiddleware Unit Tests should return 401 if Authorization header is missing" name="A2I Backend - authMiddleware Unit Tests should return 401 if Authorization header is missing" time="0.002">
+    </testcase>
+    <testcase classname="A2I Backend - authMiddleware Unit Tests should return 401 if Authorization token is null string or empty" name="A2I Backend - authMiddleware Unit Tests should return 401 if Authorization token is null string or empty" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - authMiddleware Unit Tests should return 500 if MYAHANA_EMPLOYEE_DETAILS_URL is not configured" name="A2I Backend - authMiddleware Unit Tests should return 500 if MYAHANA_EMPLOYEE_DETAILS_URL is not configured" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - authMiddleware Unit Tests should authenticate successfully when MyAhana employee_details returns valid data" name="A2I Backend - authMiddleware Unit Tests should authenticate successfully when MyAhana employee_details returns valid data" time="0.002">
+    </testcase>
+    <testcase classname="A2I Backend - authMiddleware Unit Tests should return 401 when MyAhana responds with 401 Unauthorized" name="A2I Backend - authMiddleware Unit Tests should return 401 when MyAhana responds with 401 Unauthorized" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - authMiddleware Unit Tests should return 503 when MyAhana SSO service is unreachable" name="A2I Backend - authMiddleware Unit Tests should return 503 when MyAhana SSO service is unreachable" time="0.013">
+    </testcase>
+  </testsuite>
+  <testsuite name="A2I Backend - Swagger OpenAPI Specification Unit Tests" errors="0" failures="0" skipped="0" timestamp="2026-09-08T11:11:55" time="0.039" tests="5">
+    <testcase classname="A2I Backend - Swagger OpenAPI Specification Unit Tests should declare OpenAPI version 3.0.0" name="A2I Backend - Swagger OpenAPI Specification Unit Tests should declare OpenAPI version 3.0.0" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - Swagger OpenAPI Specification Unit Tests should configure Bearer Authentication security scheme" name="A2I Backend - Swagger OpenAPI Specification Unit Tests should configure Bearer Authentication security scheme" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - Swagger OpenAPI Specification Unit Tests should apply Bearer security globally" name="A2I Backend - Swagger OpenAPI Specification Unit Tests should apply Bearer security globally" time="0.001">
+    </testcase>
+    <testcase classname="A2I Backend - Swagger OpenAPI Specification Unit Tests should document essential routes across core modules" name="A2I Backend - Swagger OpenAPI Specification Unit Tests should document essential routes across core modules" time="0.004">
+    </testcase>
+    <testcase classname="A2I Backend - Swagger OpenAPI Specification Unit Tests should have tags defined with descriptions" name="A2I Backend - Swagger OpenAPI Specification Unit Tests should have tags defined with descriptions" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

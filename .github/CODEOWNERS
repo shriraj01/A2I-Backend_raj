@@ -1,0 +1,4 @@
+# Changes to PRGuard's workflow and gate need a review from these owners.
+/.github/workflows/ @Shrirajas
+/.github/CODEOWNERS @Shrirajas
+/.prguard.toml      @Shrirajas

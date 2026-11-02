@@ -1,0 +1,39 @@
+{
+  "name": "autopilot-bci-project",
+  "version": "1.0.0",
+  "description": "this is a autopilot bci project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:junit": "jest --runInBand --reporters=default --reporters=jest-junit",
+    "start": "nodemon server.js"
+  },
+  "jest-junit": {
+    "outputDirectory": "./test-results",
+    "outputName": "junit.xml"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.5.1",
+    "jest-junit": "^17.0.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^7.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.9.16",
+    "socket.io": "^4.8.1",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}
