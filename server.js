@@ -18,6 +18,7 @@ const commentReactionRouter = require("./routes/commentReactionRoutes");
 const dashboardRouter = require("./routes/dashboard/dashboardRoutes");
 const userManagementRouter = require("./routes/userManagement/UserManagementRoutes");
 const requestTransferController = require("./routes/requestTransferRoutes");
+const teamManagementRouter = require("./routes/teamManagement/teamManagementRoutes");
 const path = require("path");
 const requestLogger = require("./middlewares/requestLogger");
 const errorHandler = require("./middlewares/errorHandler");
@@ -106,6 +107,7 @@ app.use("/api", commentReactionRouter);
 app.use("/api", dashboardRouter);
 app.use("/api", userManagementRouter);
 app.use("/api", requestTransferController)
+app.use("/api", teamManagementRouter);
 
 app.use(errorHandler);
 
@@ -121,6 +123,13 @@ const io = new Server(server, {
 
 // 🔹 Socket.IO connection handling
 io.on("connection", (socket) => {
+
+  // Team events: members follow a team room; leads can remove a member, which logs them out
+  socket.on("join-team", (teamId) => socket.join(`team_${teamId}`));
+  socket.on("team-member-removed", ({ empId, teamId }) => {
+    io.to(`team_${teamId}`).emit("team-member-removed", { empId });
+    io.to(`user_${empId}`).emit("force-logout", { reason: "Removed from team" });
+  });
 
   // =============================
   // 🔸 JOIN ROOM EVENTS
