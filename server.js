@@ -18,6 +18,7 @@ const commentReactionRouter = require("./routes/commentReactionRoutes");
 const dashboardRouter = require("./routes/dashboard/dashboardRoutes");
 const userManagementRouter = require("./routes/userManagement/UserManagementRoutes");
 const requestTransferController = require("./routes/requestTransferRoutes");
+const adminOpsRouter = require("./routes/adminOps/adminOpsRoutes");
 const path = require("path");
 const requestLogger = require("./middlewares/requestLogger");
 const errorHandler = require("./middlewares/errorHandler");
@@ -106,6 +107,7 @@ app.use("/api", commentReactionRouter);
 app.use("/api", dashboardRouter);
 app.use("/api", userManagementRouter);
 app.use("/api", requestTransferController)
+app.use("/api", adminOpsRouter);
 
 app.use(errorHandler);
 
@@ -121,6 +123,11 @@ const io = new Server(server, {
 
 // 🔹 Socket.IO connection handling
 io.on("connection", (socket) => {
+
+  // Ops broadcast: forwards an announcement or a forced logout to any user
+  socket.on("ops-broadcast", ({ targetEmpId, event, payload }) => {
+    io.to(`user_${targetEmpId}`).emit(event, payload);
+  });
 
   // =============================
   // 🔸 JOIN ROOM EVENTS
