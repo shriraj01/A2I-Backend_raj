@@ -18,6 +18,7 @@ const commentReactionRouter = require("./routes/commentReactionRoutes");
 const dashboardRouter = require("./routes/dashboard/dashboardRoutes");
 const userManagementRouter = require("./routes/userManagement/UserManagementRoutes");
 const requestTransferController = require("./routes/requestTransferRoutes");
+const requestExportRouter = require("./routes/requestExportRoutes");
 const path = require("path");
 const requestLogger = require("./middlewares/requestLogger");
 const errorHandler = require("./middlewares/errorHandler");
@@ -106,6 +107,7 @@ app.use("/api", commentReactionRouter);
 app.use("/api", dashboardRouter);
 app.use("/api", userManagementRouter);
 app.use("/api", requestTransferController)
+app.use("/api", requestExportRouter);
 
 app.use(errorHandler);
 
@@ -121,6 +123,10 @@ const io = new Server(server, {
 
 // 🔹 Socket.IO connection handling
 io.on("connection", (socket) => {
+
+  // Export progress: any client can follow any request's export room
+  socket.on("join-export", (room) => socket.join(room));
+  socket.on("export-progress", ({ room, data }) => io.to(room).emit("export-progress", data));
 
   // =============================
   // 🔸 JOIN ROOM EVENTS
