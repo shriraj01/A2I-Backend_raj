@@ -118,6 +118,10 @@ const updateUserRole = async (req, res) => {
 
   try {
     const employee = await getAhanaEmployeeById(emp_id);
+    if (!employee) {
+      logger.error({ message: "Employee not found or inactive", route, method, emp_id });
+      return res.status(404).json({ message: "Employee not found or inactive" });
+    }
 
     pool.query(
       `SELECT * FROM ahana_innovation_lab.innovation_role WHERE emp_id = ?`,
