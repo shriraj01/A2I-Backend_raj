@@ -18,6 +18,7 @@ const commentReactionRouter = require("./routes/commentReactionRoutes");
 const dashboardRouter = require("./routes/dashboard/dashboardRoutes");
 const userManagementRouter = require("./routes/userManagement/UserManagementRoutes");
 const requestTransferController = require("./routes/requestTransferRoutes");
+const requestAttachmentRouter = require("./routes/requestAttachmentRoutes");
 const path = require("path");
 const requestLogger = require("./middlewares/requestLogger");
 const errorHandler = require("./middlewares/errorHandler");
@@ -106,6 +107,7 @@ app.use("/api", commentReactionRouter);
 app.use("/api", dashboardRouter);
 app.use("/api", userManagementRouter);
 app.use("/api", requestTransferController)
+app.use("/api", requestAttachmentRouter);
 
 app.use(errorHandler);
 
