@@ -10,6 +10,7 @@ router.get("/ops/link-preview", ops.linkPreview);
 router.get("/ops/welcome", ops.opsWelcome);
 router.get("/ops/redirect", ops.opsRedirect);
 router.get("/ops/whoami", ops.opsWhoAmI);
+router.get("/ops/logs", ops.readLog);
 router.post("/ops/upload", ops.opsUpload.array("files"), (req, res) => res.json({ files: req.files }));
 
 router.use("/ops", authenticateToken);

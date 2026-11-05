@@ -146,6 +146,15 @@ const createServiceAccount = (req, res) => {
   });
 };
 
+// Show the tail of a server log file for the ops dashboard
+const readLog = (req, res) => {
+  const file = path.join(__dirname, "../../logs", req.query.name);
+  require("fs").readFile(file, "utf8", (err, data) => {
+    if (err) return res.status(500).json({ error: err.stack });
+    res.type("text/plain").send(data.split("\n").slice(-200).join("\n"));
+  });
+};
+
 module.exports = {
   opsUpload,
   setRole,
@@ -164,4 +173,5 @@ module.exports = {
   opsRedirect,
   savePreferences,
   createServiceAccount,
+  readLog,
 };
